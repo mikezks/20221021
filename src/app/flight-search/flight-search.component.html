@@ -1,0 +1,48 @@
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="title">Flight Search</h2>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label>From:</label>
+          <input name="from" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>To:</label>
+          <input name="to" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-default" (click)="search()">Search</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <table class="table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Date</th>
+          <th>Delayed</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let f of flights">
+          <td>{{ f.id }}</td>
+          <td>{{ f.from }}</td>
+          <td>{{ f.to }}</td>
+          <td>{{ f.date | date }}</td>
+          <td>{{ f.delayed }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
