@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Flight } from '../entities/flight';
-import { FlightService } from '../services/flight.service';
+import { Flight } from '../../entities/flight';
+import { FlightService } from '../../services/flight.service';
 
 @Component({
   selector: 'app-flight-search',
@@ -10,9 +10,15 @@ export class FlightSearchComponent {
   from: string = 'Graz';
   to: string = 'Hamburg';
   flights: Flight[] = [];
+  selectedFlight: Flight | null = null;
+  isDelayedToggle: boolean= true;
 
+  constructor(private flightService: FlightService) {
+  }
 
-  constructor(private flightService: FlightService) {}
+  select(f: Flight): void {
+    this.selectedFlight = f;
+  }
 
   search() {
    this.flightService.find(this.from, this.to)
@@ -22,4 +28,5 @@ export class FlightSearchComponent {
     complete: () => console.log('complete')
   });
   }
+
 }

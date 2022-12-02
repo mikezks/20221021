@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BASE_URL } from '../app.module';
@@ -16,5 +16,14 @@ export class DefaultService implements FlightService {
 
     return this.http.get<Flight[]>(this.url, { params })
 
+  }
+
+  save(flight: Flight): Observable<Flight> {
+    const url = 'http://www.angular.at/api/flight';
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+
+    return this.http.post<Flight>(url, flight, { headers });
   }
 }

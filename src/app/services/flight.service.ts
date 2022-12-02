@@ -19,4 +19,5 @@ const isProd = false;
 export abstract class FlightService {
 
  abstract find(from: string, to: string): Observable<Flight[]>;
+ abstract save(flight: Flight): Observable<Flight>;
 }

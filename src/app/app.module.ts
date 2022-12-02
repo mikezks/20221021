@@ -4,10 +4,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { FlightSearchComponent } from './flight-search/flight-search.component';
-import { DummyFlightService } from './services/dummy-flight.service';
+import { FlightBookingModule } from './flight-booking/flight-booking.module';
 
 export const BASE_URL = new InjectionToken('BASE_URL', {
   providedIn: 'root',
@@ -17,17 +15,16 @@ export const BASE_URL = new InjectionToken('BASE_URL', {
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FlightBookingModule
   ],
   declarations: [
     AppComponent,
     SidebarComponent,
-    NavbarComponent,
-    FlightSearchComponent
+    NavbarComponent
   ],
   providers: [
-    DummyFlightService
+   // DummyFlightService
   ],
   bootstrap: [
     AppComponent
