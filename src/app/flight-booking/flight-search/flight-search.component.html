@@ -1,62 +1,45 @@
-
-  <div class="card">
-    <div class="card-header">
-      <h2 class="title">Flight Search</h2>
-    </div>
-    <div class="card-body">
-      <form>
-        <div class="form-group">
-          <label>From:</label>
-          <input name="from" class="form-control" [(ngModel)]="from"/>
-        </div>
-        <div class="form-group">
-          <label>To:</label>
-          <input name="to" class="form-control" [(ngModel)]="to"/>
-        </div>
-
-        <div class="form-group">
-          <button class="btn btn-default" (click)="search()">Search</button>
-        </div>
-      </form>
-
-    </div>
+<div class="card">
+  <div class="card-header">
+    <h2 class="title">Flight Search</h2>
   </div>
-  <div class="form-group">
-    <label>IsDelayed</label>
-    <input type='checkbox' [(ngModel)]="isDelayedToggle">
-  </div>
+  <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label>From:</label>
+        <input name="from" class="form-control" [(ngModel)]="from" />
+      </div>
+      <div class="form-group">
+        <label>To:</label>
+        <input name="to" class="form-control" [(ngModel)]="to" />
+      </div>
 
-  <div class="card">
-    <table class="table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Date</th>
-          <th>Delayed</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let f of flights | statusFilter:isDelayedToggle" >
-          <td>{{ f.id }}</td>
-          <td>{{ f.from | city:'short' | async }}</td>
-          <td>{{ f.to  | city:'long'| async  }}</td>
-          <td [ngStyle]="{color: f.delayed | statusColor }">{{ f.date | date }}</td>
-          <td>{{ f.delayed }}</td>
-          <td>
-            <a (click)="select(f)">Select</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="row" *ngIf="selectedFlight">
-    <div>
-        <pre>{{selectedFlight |json}}</pre>
+      <div class="form-group">
+        <button class="btn btn-default" (click)="search()">Search</button>
+      </div>
+    </form>
+    <div class="form-group">
+      <label>IsDelayed</label>
+      <input type="checkbox" [(ngModel)]="isDelayedToggle" />
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div *ngFor="let f of flights" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <app-flight-card [item]="f" [(selected)]="basket[f.id]"></app-flight-card>
+  </div>
+
+</div>
 
 
+<div class="row">
+  <pre>
+    {{basket | json}}
+  </pre>
+</div>
+
+<div class="row" *ngIf="selectedFlight">
+  <div>
+    <pre>{{ selectedFlight | json }}</pre>
+  </div>
+</div>
