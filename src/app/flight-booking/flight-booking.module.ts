@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
@@ -14,11 +15,8 @@ import { FlightCardComponent } from './ui/flight-card/flight-card.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     SharedModule
-  ],
-  exports: [
-    FlightSearchComponent,
-    FlightEditComponent
   ]
 })
 export class FlightBookingModule { }
