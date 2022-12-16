@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { validateCity, validateCityWithParams } from 'src/app/shared/validation/city.validator';
 
 @Component({
   selector: 'app-flight-edit',
@@ -11,11 +12,15 @@ export class FlightEditComponent implements OnInit {
     id: [0],
     from: ['Graz', [
       Validators.required,
-      Validators.minLength(3)
+      Validators.minLength(3),
+      validateCity
     ]],
     to: ['Hamburg', [
       Validators.required,
-      Validators.minLength(3)
+      Validators.minLength(3),
+      validateCityWithParams([
+        'Hamburg', 'Wien', 'Frankfurt'
+      ])
     ]],
     date: [new Date().toISOString()]
   }, {
