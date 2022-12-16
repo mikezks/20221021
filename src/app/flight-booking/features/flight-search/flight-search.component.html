@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <h2 class="title">Flight Search</h2>
+    <h2 class="card-title">Flight Search</h2>
   </div>
   <div class="card-body">
     <form>
@@ -12,15 +12,21 @@
         <label>To:</label>
         <input name="to" class="form-control" [(ngModel)]="to" />
       </div>
-
       <div class="form-group">
-        <button class="btn btn-default" (click)="search()">Search</button>
+        <label>
+          <input [(ngModel)]="isDelayedToggle" name="delayed" type="checkbox">
+          Is delayed: {{ isDelayedToggle }}
+        </label>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default" (click)="search()">
+          Search
+        </button>
+        <div *ngIf="flights.length">
+          {{ flights.length }} flights found!
+        </div>
       </div>
     </form>
-    <div class="form-group">
-      <label>IsDelayed</label>
-      <input type="checkbox" [(ngModel)]="isDelayedToggle" />
-    </div>
   </div>
 </div>
 
@@ -34,15 +40,8 @@
   </div>
 </div>
 
-
-<div class="row">
-  <pre>
-    {{basket | json}}
-  </pre>
-</div>
-
-<div class="row" *ngIf="selectedFlight">
-  <div>
-    <pre>{{ selectedFlight | json }}</pre>
+<div class="card">
+  <div class="card-body">
+    <pre>{{ basket | json }}</pre>
   </div>
 </div>
