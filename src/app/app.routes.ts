@@ -18,7 +18,7 @@ export const APP_ROUTES: Routes = [
         component: FlightSearchComponent
     },
     {
-        path: 'flight-edit',
+        path: 'flight-edit/:id',
         component: FlightEditComponent
     },
 ];
