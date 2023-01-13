@@ -6,7 +6,6 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { FlightBookingModule } from './flight-booking/flight-booking.module';
 
 export const BASE_URL = new InjectionToken('BASE_URL', {
   providedIn: 'root',
@@ -20,7 +19,7 @@ export const BASE_URL = new InjectionToken('BASE_URL', {
     RouterModule.forRoot(APP_ROUTES),
 
     CoreModule,
-    FlightBookingModule
+    // FlightBookingModule
   ],
   declarations: [
     AppComponent
