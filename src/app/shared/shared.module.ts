@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CityPipe } from './pipes/city.pipe';
 import { ColorPipe } from './pipes/color.pipe';
 import { StatusFilterPipe } from './pipes/status-filter.pipe';
+import { CityValidatorDirective } from './validation/city-validator.directive';
 
 
 
@@ -11,7 +12,8 @@ import { StatusFilterPipe } from './pipes/status-filter.pipe';
   declarations: [
     CityPipe,
     ColorPipe,
-    StatusFilterPipe
+    StatusFilterPipe,
+    CityValidatorDirective
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { StatusFilterPipe } from './pipes/status-filter.pipe';
     ColorPipe,
     StatusFilterPipe,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CityValidatorDirective
   ]
 })
 export class SharedModule { }
