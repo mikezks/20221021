@@ -8,7 +8,9 @@
         <label>From:</label>
         <input class="form-control"
           name="from" [(ngModel)]="from"
-          required minlength="3" city />
+          required minlength="3" [city]="[
+          'Graz', 'Hamburg', 'Rio'
+        ]"  />
       </div>
       <div
           *ngIf="searchForm?.controls?.['from']?.invalid"
@@ -38,7 +40,9 @@
         <label>To:</label>
         <input class="form-control"
           name="to" [(ngModel)]="to"
-          required minlength="3" city />
+          required minlength="3" [city]="[
+            'Graz', 'Hamburg', 'New York'
+          ]" />
       </div>
       <div
           *ngIf="searchForm?.controls?.['to']?.invalid"

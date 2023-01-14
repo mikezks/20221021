@@ -1,4 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, timer } from 'rxjs';
 import { Flight } from '../../../entities/flight';
 import { FlightService } from '../../data-access/flight.service';
 
@@ -17,8 +18,12 @@ export class FlightSearchComponent implements OnInit, OnDestroy, AfterViewInit, 
     4: true,
     5: true,
   }
+  subscriptions = new Subscription();
 
   constructor(private flightService: FlightService) {
+    this.subscriptions.add(
+      timer(0, 2_000).subscribe(console.log)
+    );
   }
   ngAfterContentChecked(): void {
     console.log('ngAfterContentChecked');
@@ -34,6 +39,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy, AfterViewInit, 
 
   ngOnDestroy(): void {
     console.log('ngOnDestroy');
+    this.subscriptions.unsubscribe();
   }
   ngOnInit(): void {
     console.log('ngOnInit');
