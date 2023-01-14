@@ -1,3 +1,4 @@
+import { SharedModule } from './../../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
@@ -8,7 +9,8 @@ import { Flight } from 'src/app/entities/flight';
   selector: 'app-flight-card',
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   templateUrl: './flight-card.component.html',
   styleUrls: ['./flight-card.component.css']
