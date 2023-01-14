@@ -65,11 +65,13 @@ export class FlightSearchComponent implements OnInit, OnDestroy, AfterViewInit, 
 
   search() {
    this.flightService.find(this.from, this.to)
-   .subscribe({
-    next: (flights: Flight[]) => this.flights = flights,
-    error: (error) => console.log(error),
-    complete: () => console.log('complete')
-  });
+    .subscribe({
+      next: (flights: Flight[]) => {
+        return this.flights = flights;
+      },
+      error: (error) => console.log(error),
+      complete: () => console.log('complete')
+    });
   }
 
   selectedChangeHandler(id: number, event: any) {
