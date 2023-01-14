@@ -1,8 +1,15 @@
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Flight } from 'src/app/entities/flight';
 
 @Component({
+  standalone: true,
   selector: 'app-flight-card',
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   templateUrl: './flight-card.component.html',
   styleUrls: ['./flight-card.component.css']
 })

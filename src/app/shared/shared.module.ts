@@ -12,8 +12,7 @@ import { CityValidatorDirective } from './validation/city-validator.directive';
   declarations: [
     CityPipe,
     ColorPipe,
-    StatusFilterPipe,
-    CityValidatorDirective
+    StatusFilterPipe
   ],
   imports: [
     CommonModule,
@@ -25,8 +24,7 @@ import { CityValidatorDirective } from './validation/city-validator.directive';
     ColorPipe,
     StatusFilterPipe,
     FormsModule,
-    ReactiveFormsModule,
-    CityValidatorDirective
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

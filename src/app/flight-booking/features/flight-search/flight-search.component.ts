@@ -1,9 +1,20 @@
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { CityValidatorDirective } from './../../../shared/validation/city-validator.directive';
+import { FlightCardComponent } from './../../ui/flight-card/flight-card.component';
 import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { Flight } from '../../../entities/flight';
 import { FlightService } from '../../data-access/flight.service';
 
 @Component({
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    FlightCardComponent,
+    CityValidatorDirective
+  ],
   selector: 'app-flight-search',
   templateUrl: './flight-search.component.html',
 })

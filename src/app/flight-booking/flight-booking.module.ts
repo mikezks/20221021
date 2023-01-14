@@ -10,8 +10,6 @@ import { FlightBookingRoutingModule } from './flight-booking-routing.module';
 
 @NgModule({
   declarations: [
-    FlightSearchComponent,
-    FlightCardComponent,
     FlightEditComponent
   ],
   imports: [
