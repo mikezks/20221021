@@ -19,6 +19,9 @@ export class FlightSearchComponent implements OnInit, OnDestroy, AfterViewInit, 
     5: true,
   }
   subscriptions = new Subscription();
+  fromValidCities = [
+    'Graz', 'Hamburg', 'Rio'
+  ];
 
   constructor(private flightService: FlightService) {
     this.subscriptions.add(

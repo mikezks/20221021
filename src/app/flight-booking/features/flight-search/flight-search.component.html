@@ -8,9 +8,7 @@
         <label>From:</label>
         <input class="form-control"
           name="from" [(ngModel)]="from"
-          required minlength="3" [city]="[
-          'Graz', 'Hamburg', 'Rio'
-        ]"  />
+          required minlength="3" [city]="fromValidCities"  />
       </div>
       <div
           *ngIf="searchForm?.controls?.['from']?.invalid"
