@@ -1,3 +1,4 @@
+import { BookingOverviewComponent } from './features/booking-overview/booking-overview.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FlightEditComponent } from './features/flight-edit/flight-edit.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
         path: 'flight-edit/:id',
         component: FlightEditComponent
       },
+      {
+        path: 'booking-overview',
+        component: BookingOverviewComponent
+      }
     ]
   }
 ];
